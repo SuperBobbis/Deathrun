@@ -1,0 +1,36 @@
+This is just a recolour/theme change for Arizard's Deathrun Neue (github.com/arizard/deathrun), functionally it is the exact same. Feel free to change this to your hearts content after you read the guide. If you are unsure about any of this, please contact me through Steam at http://steamcommunity.com/id/NeueHelper/
+
+After being on many Deathrun Neue servers, I have seen no one really knows how to customise, everything being set to default. This will just be a short guide on how to customise the look of your server. 
+
+--config.lua--
+
+To start off, you'll need to learn how to add in/change colours to the config.lua file. To change an existing one (What I did for Death and Runner teams for example) all you do is replace the Hex colour with applicable Hex colour. For instance, "Grey3 = HexColor("#303030")"; change the Hex colour to #191919, like so, "Grey3 = HexColor("#191919")". This is useful for making a lot of similar things to a colour at the same time that use it. Common ones are Turq and Clouds.
+
+To add in a custom hex colour you need to follow the pattern of the existing ones. Adding in a line (make sure it is in both lots) is just "ColourName = HexColor("#HexColour")". To use an example, "Black = HexColor("#000000")". To the top one, make sure it has a comma after to indicate the list continues, while the bottom one has a comma until the very last one, which you leave without a comma. This is a good thing to learn as it means you can make certain items this colour, the insides of the push buttons, the top of the scoreboard etc. 
+
+--scoreboard.lua--
+
+There is an often unused feature which is in this file. You can give specific SteamID's or a whole usergroup a custom colour, icon and tag; this is down near the bottom as a list with several pre-completeted ones you can use as a reference. I give a description for each of these where they occur. Lines 526/527 detail how to add specific SteamIDs, line 554 for rank colours, line 588 for rank icon and 610 for tag.
+
+--pointshop support--
+
+In sh_pointshopsupport.lua, you have the option to define which pointshop you use if any, and a few other features. You can set how many points people get for killing another team player, the amount of points you get for winning a round (staying alive longer than the other team) and how many points you would get if you "finish" the map going through an end zone. Which leads me onto the next bit...
+
+--zones--
+Zones are a wonderful thing, you have several different types. I will focus on the main one, but all are pretty self-explanatory in the name of them.
+End zones are areas of a map that is designated by the server owner/admin (or added by placing the ones included into the data/deathrun/zones folder) to be the defined end of a map. What this will do is add in an area of the map that will remove death sprint (making end map minigames more fair), give the player a set amount of points if configured in sh_pointshopsupport.lua, shows the time of when someone finishes, saving the top 3 times to a leaderboard (that shows up on NEXT map launch, not on the map the zone is added).
+
+--general stuff--
+
+I had learned most of this by trial and error, so take this with a grain of salt. I found that if you are unsure what a DR.Color does, before you make it any custom colour, change it to Sunflower as it is bright and shows up in whatever you are changing (be it scoreboard, mapvote, motd, statistics or other) to make it easier for yourself.
+
+To customise certain parts, I will detail what each file includes:
+config.lua: Base colours, use this to change colours in other files.
+cl_announcer.lua: Changes the colour of the "Help" chatbox lines as well as the lines themselves.
+cl_derma.lua: Changes most of the colours for things the gamemode uses.
+cl_hud.lua: The Health/Speed bar and the ammo counter colours reside here.
+cl_menus.lua: Most pop up colours come from here, like the F2 menu and the motd at the start.
+sh_statistics.lua: The colour for the round-start statistics.
+mapvote/cl_mapvote.lua: The RTV and nominate menu colours are in this file.
+
+This guide is by no means exhaustive, there are things I haven't found, or things I have forgotten to mention or forgetten entirely.
